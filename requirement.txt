@@ -1,0 +1,6 @@
+pytest-html
+playwright pytest
+playwright
+pytest
+pytest-rerunfailures
+allure-pytest

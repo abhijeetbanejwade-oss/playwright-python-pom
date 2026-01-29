@@ -1,7 +1,3 @@
-from Pages.login_page import LoginPage
-from Pages.sanity_check import PagesSanityCheck
-import pytest
-
 def test_e2e_flow(login_page, pages_sanity_check):
     # Login
     login_page.login("standard_user", "secret_sauce")

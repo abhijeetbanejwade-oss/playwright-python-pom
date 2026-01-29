@@ -1,5 +1,5 @@
 pytest-html
-playwright pytest
+pytest-playwright
 playwright
 pytest
 pytest-rerunfailures

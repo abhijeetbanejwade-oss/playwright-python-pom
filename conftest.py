@@ -17,12 +17,12 @@ def browser():
         browser.close()
 
 
-@pytest.fixture
-def page(browser):
-    context = browser.new_context()
-    page = context.new_page()
-    yield page
-    context.close()
+# @pytest.fixture
+# def page(browser):
+#     context = browser.new_context()
+#     page = context.new_page()
+#     yield page
+#     context.close()
 
 
 @pytest.fixture
@@ -37,3 +37,24 @@ def login_page(page):
 def pages_sanity_check(page):
     """Return a PagesSanityCheck instance for inventory/cart flows."""
     return PagesSanityCheck(page)
+
+def pytest_sessionstart(session):
+    print("===== Test Execution Started =====")
+
+def pytest_sessionfinish(session, exitstatus):
+    print("===== Test Execution Finished =====")
+
+import pytest
+from playwright.sync_api import sync_playwright
+
+@pytest.fixture
+def page():
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        context = browser.new_context(
+            record_video_dir="videos/"
+        )
+        page = context.new_page()
+        yield page
+        context.close()
+        browser.close()

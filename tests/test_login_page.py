@@ -1,3 +1,4 @@
+import pytest
 from Pages.login_page import LoginPage
 
 
@@ -5,7 +6,6 @@ from Pages.login_page import LoginPage
 VALID_USER = ("standard_user", "secret_sauce")
 LOCKED_OUT_USER = ("locked_out_user", "secret_sauce")
 INVALID_USER = ("invalid_user", "bad_pass")
-
 
 def test_valid_login(login_page):
     username, password = VALID_USER

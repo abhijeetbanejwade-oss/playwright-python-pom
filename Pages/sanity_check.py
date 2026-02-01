@@ -48,3 +48,5 @@ class PagesSanityCheck:
             return self.page.locator(self.order_complete_header).is_visible()
         except Exception:
             return False
+
+
